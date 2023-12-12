@@ -42,8 +42,10 @@ app.use('/static', express.static(path.join(__dirname, 'public')))
 app.use(errorHandlerMiddleware)
 
 // Routes
-app.use('/api/auth', require('./routes/api/auth'))
-
+app.use('/api/auth', require('./routes/auth'))
+app.use('/oke', (req, res) => {
+  res.send("API OKE BOS");
+})
 app.all('*', (req, res) => {
   res.status(404)
 
